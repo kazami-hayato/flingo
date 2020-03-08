@@ -1,0 +1,45 @@
+server:
+  port: 8080
+  tomcat:
+    remote-ip-header: X-Real-IP
+    protocol-header: X-Forwarded-Proto
+  forward-headers-strategy: native
+
+spring:
+  cache:
+    type: redis
+  datasource:
+    username: root
+    password: '!Whu123456'
+    url: jdbc:mysql://114.215.174.187:3306/school1?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+#redis
+  redis:
+    database: 0
+    password: zixuedao
+    port: 6379
+    host: 127.0.0.1
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 1
+        max-active: 2000
+        max-wait: -1
+
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.example.unisys.entity
+
+#showSql
+logging:
+  level:
+    com.example.unisys.mapper: ERROR
+
+
+
