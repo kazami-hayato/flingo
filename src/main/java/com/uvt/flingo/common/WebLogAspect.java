@@ -27,9 +27,9 @@ public class WebLogAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         // 记录下请求内容
-        log.info("URL : " + request.getRequestURL().toString());
-        log.info("HTTP_METHOD : " + request.getMethod());
-        log.info("IP : " + request.getRemoteAddr());
+        log.info("URL: " + request.getRequestURL().toString());
+        log.info("HTTP_METHOD: " + request.getMethod());
+        log.info("REQUEST_IP: " + request.getRemoteAddr());
         Enumeration<String> enu = request.getParameterNames();
         while (enu.hasMoreElements()) {
             String name = (String) enu.nextElement();

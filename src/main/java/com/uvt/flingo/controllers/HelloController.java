@@ -1,8 +1,10 @@
 package com.uvt.flingo.controllers;
 
+import com.uvt.flingo.Entity.User;
 import com.uvt.flingo.FlingoApplication;
 import com.uvt.flingo.common.Response;
 import com.uvt.flingo.common.STATUS;
+import com.uvt.flingo.exceptions.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +19,8 @@ public class HelloController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public Response greeting() {
-        var a = Response.builder().Code(STATUS.SUCCESS).build();
-        log.info("a new day");
-        return a;
-
+        return Response.builder().status(STATUS.SUCCESS.getCode())
+                .data(User.builder().username("lk").build())
+                .build();
     }
 }

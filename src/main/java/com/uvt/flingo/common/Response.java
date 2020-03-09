@@ -1,5 +1,6 @@
 package com.uvt.flingo.common;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
@@ -9,8 +10,7 @@ import lombok.ToString;
 @ToString
 public class Response {
 
-    private STATUS Code;
+    private Integer status;
     private String Message;
     private Object data;
-
 }

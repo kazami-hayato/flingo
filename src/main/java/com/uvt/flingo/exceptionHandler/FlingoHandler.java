@@ -16,6 +16,6 @@ public class FlingoHandler {
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     @ExceptionHandler(value = NotFoundException.class)
     public Response handleNotFound(HttpServletRequest request, NotFoundException e) throws Exception {
-        return Response.builder().Code(STATUS.NOT_FOUND).build();
+        return Response.builder().status(STATUS.NOT_FOUND.getCode()).build();
     }
 }
