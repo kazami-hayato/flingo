@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uvt.flingo.dao.TagTableDao">
+  <resultMap id="BaseResultMap" type="com.uvt.flingo.entity.TagTable">
+    <id column="course_id" jdbcType="VARCHAR" property="course_id" />
+    <result column="course_name" jdbcType="VARCHAR" property="course_name" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+    <result column="material_name" jdbcType="VARCHAR" property="material_name" />
+    <result column="course_duration" jdbcType="INTEGER" property="course_duration" />
+    <result column="course_sum" jdbcType="INTEGER" property="course_sum" />
+    <result column="question_sum" jdbcType="INTEGER" property="question_sum" />
+    <result column="material_cover" jdbcType="VARCHAR" property="material_cover" />
+    <result column="course_brief" jdbcType="VARCHAR" property="course_brief" />
+    <result column="is_for_main" jdbcType="INTEGER" property="is_for_main" />
+    <result column="catalogtree" jdbcType="VARCHAR" property="catalogtree" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    course_id, course_name, create_time, update_time, material_name, course_duration, 
+    course_sum, question_sum, material_cover, course_brief, is_for_main, catalogtree
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from course_repo_table
+    where course_id = #{course_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from course_repo_table
+    where course_id = #{course_id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.uvt.flingo.entity.TagTable">
+    insert into course_repo_table (course_id, course_name, create_time, 
+      update_time, material_name, course_duration, 
+      course_sum, question_sum, material_cover, 
+      course_brief, is_for_main, catalogtree
+      )
+    values (#{course_id,jdbcType=VARCHAR}, #{course_name,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, 
+      #{update_time,jdbcType=TIMESTAMP}, #{material_name,jdbcType=VARCHAR}, #{course_duration,jdbcType=INTEGER}, 
+      #{course_sum,jdbcType=INTEGER}, #{question_sum,jdbcType=INTEGER}, #{material_cover,jdbcType=VARCHAR}, 
+      #{course_brief,jdbcType=VARCHAR}, #{is_for_main,jdbcType=INTEGER}, #{catalogtree,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.uvt.flingo.entity.TagTable">
+    insert into course_repo_table
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="course_id != null">
+        course_id,
+      </if>
+      <if test="course_name != null">
+        course_name,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+      <if test="material_name != null">
+        material_name,
+      </if>
+      <if test="course_duration != null">
+        course_duration,
+      </if>
+      <if test="course_sum != null">
+        course_sum,
+      </if>
+      <if test="question_sum != null">
+        question_sum,
+      </if>
+      <if test="material_cover != null">
+        material_cover,
+      </if>
+      <if test="course_brief != null">
+        course_brief,
+      </if>
+      <if test="is_for_main != null">
+        is_for_main,
+      </if>
+      <if test="catalogtree != null">
+        catalogtree,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="course_id != null">
+        #{course_id,jdbcType=VARCHAR},
+      </if>
+      <if test="course_name != null">
+        #{course_name,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="material_name != null">
+        #{material_name,jdbcType=VARCHAR},
+      </if>
+      <if test="course_duration != null">
+        #{course_duration,jdbcType=INTEGER},
+      </if>
+      <if test="course_sum != null">
+        #{course_sum,jdbcType=INTEGER},
+      </if>
+      <if test="question_sum != null">
+        #{question_sum,jdbcType=INTEGER},
+      </if>
+      <if test="material_cover != null">
+        #{material_cover,jdbcType=VARCHAR},
+      </if>
+      <if test="course_brief != null">
+        #{course_brief,jdbcType=VARCHAR},
+      </if>
+      <if test="is_for_main != null">
+        #{is_for_main,jdbcType=INTEGER},
+      </if>
+      <if test="catalogtree != null">
+        #{catalogtree,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.uvt.flingo.entity.TagTable">
+    update course_repo_table
+    <set>
+      <if test="course_name != null">
+        course_name = #{course_name,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="material_name != null">
+        material_name = #{material_name,jdbcType=VARCHAR},
+      </if>
+      <if test="course_duration != null">
+        course_duration = #{course_duration,jdbcType=INTEGER},
+      </if>
+      <if test="course_sum != null">
+        course_sum = #{course_sum,jdbcType=INTEGER},
+      </if>
+      <if test="question_sum != null">
+        question_sum = #{question_sum,jdbcType=INTEGER},
+      </if>
+      <if test="material_cover != null">
+        material_cover = #{material_cover,jdbcType=VARCHAR},
+      </if>
+      <if test="course_brief != null">
+        course_brief = #{course_brief,jdbcType=VARCHAR},
+      </if>
+      <if test="is_for_main != null">
+        is_for_main = #{is_for_main,jdbcType=INTEGER},
+      </if>
+      <if test="catalogtree != null">
+        catalogtree = #{catalogtree,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where course_id = #{course_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.uvt.flingo.entity.TagTable">
+    update course_repo_table
+    set course_name = #{course_name,jdbcType=VARCHAR},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      material_name = #{material_name,jdbcType=VARCHAR},
+      course_duration = #{course_duration,jdbcType=INTEGER},
+      course_sum = #{course_sum,jdbcType=INTEGER},
+      question_sum = #{question_sum,jdbcType=INTEGER},
+      material_cover = #{material_cover,jdbcType=VARCHAR},
+      course_brief = #{course_brief,jdbcType=VARCHAR},
+      is_for_main = #{is_for_main,jdbcType=INTEGER},
+      catalogtree = #{catalogtree,jdbcType=VARCHAR}
+    where course_id = #{course_id,jdbcType=VARCHAR}
+  </update>
+</mapper>

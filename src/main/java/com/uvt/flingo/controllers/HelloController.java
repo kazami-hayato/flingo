@@ -1,13 +1,8 @@
 package com.uvt.flingo.controllers;
 
-import com.uvt.flingo.Entity.User;
-import com.uvt.flingo.FlingoApplication;
 import com.uvt.flingo.common.Response;
 import com.uvt.flingo.common.STATUS;
-import com.uvt.flingo.exceptions.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
